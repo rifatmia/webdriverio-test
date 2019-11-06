@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <title>Home Page</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <form>
+      <input type='text' id='valueField' name='texField'/>
+      <input type='button' id='submitButton'/>
+    </form>
+    <div id='errorWarn'></div>
+    <script>
+      let button = document.getElementById('submitButton')
+
+      function submitForm() {
+        let formValue = document.getElementById('valueField').value
+        let elementToUpdate = document.getElementById('errorWarn')
+        if (formValue === 'Hello World') {
+          elementToUpdate.innerHTML = ''
+          new fin.desktop.Window({
+            name: 'confirmationWindow',
+            url: 'confirmation.html',
+            autoShow: true
+          })
+        } else {
+          elementToUpdate.innerHTML = 'You should say Hello World'
+        }
+      }
+
+      button.onclick = submitForm
+    </script>
+  </body>
+</html>
